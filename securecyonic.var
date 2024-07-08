@@ -1,0 +1,11 @@
+#Current Version
+version=2.21beta
+_v_f=https://raw.githubusercontent.com/RuisuGit/SecureCyonic/main/currentversion.txt
+_v_b=https://raw.githubusercontent.com/RuisuGit/SecureCyonic/main/sc.cmd
+
+#Main Variables
+securecyonic-main=%0
+
+#Functions Variables
+_ar=call curl -o
+_duck=call "assets/interfV2.bat"

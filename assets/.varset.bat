@@ -1,0 +1,2 @@
+for /f "usebackq tokens=1* delims==" %%A in ("securecyonic.var") do (if not "%%A"=="" ( set "_1=%%A" & set "_1=!_1:~0,1!" & if not "!_1!"=="#" (set "%%A=%%B")))
+:: Code minified - SecureCyonic Main 2.21Beta Update
