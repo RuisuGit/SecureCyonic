@@ -69,18 +69,11 @@ if "%_l_v_i%"=="" (goto :main) && if not "%_l_v_i%"=="%version%" (%_a% %~f0.tmp 
 rem Adicionar a acao de update depois...
 if "%updatepending%"=="" (
     set "updfile11=%temp%\batfile_github.bat"
-    %_a% "%temp%\batfile_github.bat" %_v_b% >nul
-    if %ERRORLEVEL% NEQ 0 (
-        %_duck% Error: Integrity check failed!
-        if exist "%temp%\batfile_github.bat" (
-            del /q %temp%\batfile_github.bat >nul
-        )
-        goto :main
-    )
+    %_a% "%temp%\batfile_github.bat" %_v_b%
     fc %temp%\batfile_github.bat %~nx0 > nul
     if errorlevel 1 (
-        %_duck% Error: Invalid SecureCyonic version
-        msg * /time:5 SecureCyonic detected that your runner appears to be corrupted, Reinstall me to remove this warning >nul
+        %_duck% Error: Your SecureCyonic version isn't valid!
+        msg * /time:5 SecureCyonic version isn't valid! >nul
     )
     del /q %temp%\batfile_github.bat >nul
 )

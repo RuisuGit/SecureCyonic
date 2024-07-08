@@ -1,7 +1,7 @@
 #Current Version
 version=2.21beta
 _v_f=https://raw.githubusercontent.com/RuisuGit/SecureCyonic/main/currentversion.txt
-_v_b=https://raw.githubusercontent.com/RuisuGit/SecureCyonic/main/SecureCyonic.bat
+_v_b=https://raw.githubusercontent.com/RuisuGit/SecureCyonic/main/sc.cmd
 
 #Main Variables
 securecyonic-main=%0
