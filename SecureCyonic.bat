@@ -70,6 +70,13 @@ rem Adicionar a acao de update depois...
 if "%updatepending%"=="" (
     set "updfile11=%temp%\batfile_github.bat"
     %_a% "%temp%\batfile_github.bat" %_v_b% >nul
+    if %ERRORLEVEL% NEQ 0 (
+        %_duck% Error: Integrity check failed!
+        if exist "%temp%\batfile_github.bat" (
+            del /q %temp%\batfile_github.bat >nul
+        )
+        goto :main
+    )
     fc %temp%\batfile_github.bat %~nx0 > nul
     if errorlevel 1 (
         %_duck% Error: Invalid SecureCyonic version
