@@ -67,6 +67,16 @@ for /f "tokens=*" %%i in ('powershell -Command "Invoke-WebRequest -Uri '%_v_f%' 
 if "%_l_v_i%"=="" (goto :main) && if not "%_l_v_i%"=="%version%" (%_a% %~f0.tmp %_v_b% >nul 2>&1 && set "updatepending=true" >nul)
 
 rem Adicionar a acao de update depois...
+if "%updatepending%"=="" (
+    set "updfile11=%temp%\batfile_github.bat"
+    %_a% "%temp%\batfile_github.bat" %_v_b%
+    fc %temp%\batfile_github.bat %~nx0 > nul
+    if errorlevel 1 (
+        %_duck% Error: Your SecureCyonic version isn't valid!
+        msg * /time:5 SecureCyonic version isn't valid! >nul
+    )
+    del /q %temp%\batfile_github.bat >nul
+)
 
 :main
 set "windowid=SecureCyonic %random%" && set "archive=.%~n1___%~x1" && if "%~1"=="" (
